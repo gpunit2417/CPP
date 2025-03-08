@@ -13,7 +13,7 @@ void solve(stack<int>& s, int x){
     s.push(num);
 }
 
-stack<int> pushAtBottom(stack<int>& ,){
+stack<int> pushAtBottom(stack<int>&myStack ,int x){
     solve(myStack, x);
     return myStack;
 }
