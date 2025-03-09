@@ -1,55 +1,59 @@
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
 using namespace std;
-int main()
-{
-    stack<int>stk;
-    int choice, n, temp;
-     
-    do
-    {
-        cout<<endl;
-        cout<<"0 - Exit."<<endl;
-        cout<<"1 - Push Item."<<endl;
-        cout<<"2 - Pop Item."<<endl;
-        cout<<"3 - Display Items (Print STACK)."<<endl;
-         
-        cout<<"Enter your choice: ";
-        cin>>choice;
-         
-        switch(choice)
-        {
-            case 0: break;
-             
+
+int main() {
+    stack<int> stk;
+    int choice, n;
+
+    do {
+        cout << endl;
+        cout << "0 - Exit." << endl;
+        cout << "1 - Push Item." << endl;
+        cout << "2 - Pop Item." << endl;
+        cout << "3 - Display Items (Print STACK)." << endl;
+
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 0:
+                break;
+
             case 1:
-                cout<<"Enter item to insert: ";
-                cin>>n;
-                temp=stk.push(n);
-                if(temp==n)
-                    cout<<"STACK OVERFLOW - STACK IMPLEMENTATION ERROR"<<endl;
-                else
-                    cout<<temp<<" inserted."<<endl;
+                cout << "Enter item to insert: ";
+                cin >> n;
+                stk.push(n);
+                cout << n << " inserted." << endl;
                 break;
-                 
+
             case 2:
-                temp=stk.pop();
-                if(temp==n)
-                    cout<<"STACK UNDERFLOW - STACK ADT ERROR"<<endl;
-                else
-                    cout<<temp<<" is removed (popped)."<<endl;
-                break;
-             
-            case 3:
-                while (!stack.empty()) {
-		            cout<< stack.top() <<" ";
-		            stack.pop();
-                    break;
+                if (!stk.empty()) {
+                    cout << stk.top() << " is removed (popped)." << endl;
+                    stk.pop();
+                } else {
+                    cout << "STACK UNDERFLOW - No elements to pop!" << endl;
                 }
-             
+                break;
+
+            case 3:
+                if (stk.empty()) {
+                    cout << "STACK is empty!" << endl;
+                } else {
+                    stack<int> tempStack = stk; // Create a copy to display items
+                    cout << "Stack elements (top to bottom): ";
+                    while (!tempStack.empty()) {
+                        cout << tempStack.top() << " ";
+                        tempStack.pop();
+                    }
+                    cout << endl;
+                }
+                break;
+
             default:
-                cout<<"An Invalid choice."<<endl;
-        }   
-    }while(choice!=0);
- 
- return 0;
+                cout << "Invalid choice. Please enter a valid option." << endl;
+        }
+    } while (choice != 0);
+
+    return 0;
 }
