@@ -1,38 +1,48 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Human{
-    public:
+
+class Human {
+public:
     int height;
     int weight;
     int age;
 
-    public:
-    int getage(){
+public:
+    int getage() {
         return this->age;
     }
-    int setweight(int w){
+    void setweight(int w) { // Changed return type to void
         this->weight = w;
     }
 };
 
-class male: public Human{
-    public:
+class Male : public Human {  // Class name changed to PascalCase (best practice)
+public:
     string color;
-    void sleep(){
-        cout<< " sleep "<< endl;
+
+    void sleep() {
+        cout << "Sleeping..." << endl;
     }
 };
 
-int main(){
-    male object;
-    cout<< object.age<<endl;
-    cout<<object.height<<endl;
-    cout<<object.weight<<endl;
+int main() {
+    Male object;
 
-    cout<<object.color <<endl;
+    // Initializing object attributes (otherwise they have garbage values)
+    object.age = 25;
+    object.height = 175;
+    object.weight = 70;
+    object.color = "Brown";
 
+    cout << "Age: " << object.age << endl;
+    cout << "Height: " << object.height << " cm" << endl;
+    cout << "Weight: " << object.weight << " kg" << endl;
+    cout << "Color: " << object.color << endl;
+
+    // Updating weight using setweight()
     object.setweight(50);
-    cout<<object.weight<<endl;
+    cout << "Updated Weight: " << object.weight << " kg" << endl;
+
     object.sleep();
 
     return 0;
