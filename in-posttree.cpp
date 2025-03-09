@@ -27,7 +27,7 @@ class Solution{
         int postindex = 0; 
         map<int,int> nodetoindex;
         mapp(in, nodetoindex, n);
-        Node* ans = solve(in, post, postindex, 0, n-1, n);
+        Node* ans = solve(in, post, postindex, 0, n-1, n, nodetoindex);
         return ans;
     }
 };
